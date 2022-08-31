@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import Index from "./Screens/Index";
 import Profile from "./Screens/Profile";
 import Header from "./commons/Header";

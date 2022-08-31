@@ -5,10 +5,10 @@ const Header = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div className="header">
       <button onClick={() => dispatch(setScreen("home"))}>Home</button>
       <button onClick={() => dispatch(setScreen("profile"))}>Profile</button>
-    </>
+    </div>
   );
 };
 
