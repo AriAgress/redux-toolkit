@@ -1,6 +1,7 @@
 import React from "react";
-import { toggleModal } from "../Screens/indexSlice";
+import { toggleModal } from "../Screens/Index/indexSlice";
 import { useDispatch } from "react-redux";
+import CommentForm from "../Screens/Profile/CommentForm";
 
 const Modal = ({ children }) => {
   const dispatch = useDispatch();
@@ -14,13 +15,13 @@ const Modal = ({ children }) => {
     <>
       <div
         className="modal-container"
-        onClick={closeModal}
         style={{ backgroundColor: "black", height: "200px", width: "200px" }}>
         <div className="modal-content">
           <button className="close-button" onClick={closeModal}>
             X
           </button>
           {children}
+          <CommentForm />
         </div>
       </div>
     </>

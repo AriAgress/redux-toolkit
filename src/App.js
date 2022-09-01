@@ -1,5 +1,5 @@
-import Index from "./Screens/Index";
-import Profile from "./Screens/Profile";
+import Index from "./Screens/Index/Index.js";
+import Profile from "./Screens/Profile/Profile.js";
 import Header from "./commons/Header";
 import { useSelector } from "react-redux";
 import "./App.css";
