@@ -1,18 +1,32 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteComment } from "../Profile/profileSlice";
+import { useDispatch } from "react-redux";
+import { deleteComment, editComment } from "../Profile/profileSlice";
 
 const Comment = ({ text, id }) => {
-  // const [edit, setEdit] = useState("");
   const [editInput, setEditInput] = useState(false);
+  const [edit, setEdit] = useState(text);
   const dispatch = useDispatch();
+
+  const onChange = (e) => {
+    setEdit(e.target.value);
+  };
+
+  const submitEdit = () => {
+    dispatch(editComment({ id, text: edit }));
+    setEditInput(false);
+  };
 
   return (
     <div>
       <p>{text}</p>
       <button onClick={() => dispatch(deleteComment(id))}>X</button>
       <button onClick={() => setEditInput(!editInput)}>Update</button>
-      {editInput && <input />}
+      {editInput && (
+        <div>
+          <input onChange={onChange} value={edit} />{" "}
+          <button onClick={submitEdit}>Submit</button>
+        </div>
+      )}
     </div>
   );
 };

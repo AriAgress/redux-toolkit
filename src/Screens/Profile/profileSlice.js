@@ -23,12 +23,17 @@ export const profileSlice = createSlice({
         (comment) => comment.id !== action.payload
       );
     },
-    // editComment(state, action){
-
-    // }
+    editComment(state, action) {
+      if (action.payload && action.payload.id) {
+        const editIndex = state.comments.findIndex(
+          (comments) => comments.id === action.payload.id
+        );
+        state.comments[editIndex].text = action.payload.text;
+      }
+    },
   },
 });
 
-export const { addComment, deleteComment } = profileSlice.actions;
+export const { addComment, deleteComment, editComment } = profileSlice.actions;
 
 export default profileSlice.reducer;
