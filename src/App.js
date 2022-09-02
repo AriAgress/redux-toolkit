@@ -9,7 +9,7 @@ function App() {
   console.log("State", index);
 
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       {index.screen === "home" ? <Index /> : <Profile />}
     </div>

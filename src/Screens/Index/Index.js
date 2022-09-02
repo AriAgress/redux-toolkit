@@ -1,7 +1,7 @@
 const Index = () => {
   return (
-    <div>
-      <h1>Index</h1>
+    <div className="home">
+      <h1>Redux Tool Kit</h1>
     </div>
   );
 };

@@ -12,10 +12,8 @@ const Modal = ({ children }) => {
   };
 
   return (
-    <>
-      <div
-        className="modal-container"
-        style={{ backgroundColor: "black", height: "200px", width: "200px" }}>
+    <div className="modal-wrapper">
+      <div className="modal-container">
         <div className="modal-content">
           <button className="close-button" onClick={closeModal}>
             X
@@ -24,7 +22,7 @@ const Modal = ({ children }) => {
           <CommentForm />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
