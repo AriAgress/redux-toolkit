@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  comments: ["first comment"],
+  // comments: ["first comment"],
+  id: 0,
+  comments: [],
 };
 
 export const profileSlice = createSlice({
@@ -9,12 +11,24 @@ export const profileSlice = createSlice({
   initialState: initialState,
   reducers: {
     addComment(state, action) {
-      let addedComment = [...state.comments, action.payload];
-      state.comments = addedComment;
+      const addComment = {
+        id: state.id + 1,
+        text: action.payload,
+      };
+      state.id += 1;
+      state.comments.push(addComment);
     },
+    deleteComment(state, action) {
+      state.comments = state.comments.filter(
+        (comment) => comment.id !== action.payload
+      );
+    },
+    // editComment(state, action){
+
+    // }
   },
 });
 
-export const { addComment } = profileSlice.actions;
+export const { addComment, deleteComment } = profileSlice.actions;
 
 export default profileSlice.reducer;
